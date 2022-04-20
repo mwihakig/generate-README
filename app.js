@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
-// const fs = require('fs');
-// const generatePage = require('./src/page-template');
+ const fs = require('fs');
+ const generatePage = require('./page-template');
+ generatePage();
 
 
 //const name = 'Mwihaki Githii'
@@ -153,10 +154,23 @@ const promptUser = () => {
       
     ]);
   };
+
   promptUser()
-  .then(answers => console.log(answers))
   .then(promptProject)
-  .then(projectAnswers => console.log(projectAnswers));
+  .then(portfolioData => {
+     const pageHTML = generatePage(portfolioData);
+     generatePage()
+
+     fs.writeFile('./index.html', pageHTML, err => {
+       if (err) throw new Error(err);
+
+    //   console.log('Page created! Check out index.html in this directory to see it!');
+    // });
+  });
+
+  
+  
+ // .then(projectAnswers => console.log(projectAnswers));
 
 //const fs = require('fs');
 //const generatePage = require('./src/page-template');
@@ -202,4 +216,4 @@ const promptUser = () => {
 
 
 
-
+  })
