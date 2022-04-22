@@ -1,4 +1,4 @@
-const inquirer = require('inquirer');
+const inquirer = require("inquirer");
  const fs = require('fs');
  const generatePage = require('./page-template');
  generatePage();
@@ -23,7 +23,7 @@ const promptUser = () => {
         if (nameInput) {
           return true;
         } else {
-          console.log('Please enter your name!');
+          console.log('nameInput');
           return false;
         }
       }
@@ -41,7 +41,7 @@ const promptUser = () => {
           if ( usernameInput) {
             return true;
           } else {
-            console.log('Please enter your Github usernmae');
+            console.log('Please re-enter your Github username');
             return false;
           }
         }
